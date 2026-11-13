@@ -1,0 +1,4 @@
+[toolchain]
+# sqlx 0.9 needs Rust 1.94 or newer; the relay is its own repo and uses current stable.
+channel = "1.99.1"
+components = ["rustfmt", "clippy"]

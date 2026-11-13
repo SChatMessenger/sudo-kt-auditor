@@ -1,0 +1,10 @@
+/target
+.DS_Store
+.env
+.env.*
+*.swp
+.idea/
+.vscode/
+# The auditor's own state and evidence when run from this folder.
+/.sudo-kt-auditor/
+CLAUDE.md

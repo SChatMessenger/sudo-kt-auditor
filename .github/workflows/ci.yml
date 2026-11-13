@@ -1,0 +1,76 @@
+# Checks run on every push to main and on pull requests. Never weaken or skip
+# a step to make it pass (workspace CLAUDE.md, sudo-kt-auditor CLAUDE.md).
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  auditor:
+    runs-on: ubuntu-24.04
+    services:
+      # Test database for the relay the tests start: no password, this job only.
+      postgres:
+        image: postgres:18.6-alpine@sha256:9ba53c7d41ea093baf5c1ba635ba5434c4f979880527d49bb7d9237d3193085b
+        env:
+          POSTGRES_USER: sudo
+          POSTGRES_DB: sudo_relay
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 55432:5432
+        options: >-
+          --health-cmd "pg_isready -U sudo" --health-interval 2s --health-timeout 2s --health-retries 30
+    env:
+      DATABASE_URL: postgres://sudo@127.0.0.1:55432/sudo_relay
+      # The relay's compile-time query checks use its committed .sqlx data.
+      SQLX_OFFLINE: "true"
+    steps:
+      # Actions are pinned to full commit IDs, not tags.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Rust toolchain
+        run: rustup toolchain install
+
+      # sudo-sdk and sudo-relay are private. SUDO_READ_TOKEN is a read-only
+      # token for those two repositories, kept as a GitHub secret. It is used
+      # only in this step to download the locked dependencies, then removed,
+      # so no build script or later step can read it.
+      - name: Download dependencies (read access to sudo-sdk and sudo-relay)
+        env:
+          SUDO_READ_TOKEN: ${{ secrets.SUDO_READ_TOKEN }}
+        run: |
+          test -n "$SUDO_READ_TOKEN" || { echo "secret SUDO_READ_TOKEN is missing"; exit 1; }
+          for repo in sudo-sdk sudo-relay; do
+            git config --global url."https://x-access-token:${SUDO_READ_TOKEN}@github.com/SChatMessenger/${repo}".insteadOf "https://github.com/SChatMessenger/${repo}"
+          done
+          status=0
+          cargo fetch --locked || status=$?
+          for repo in sudo-sdk sudo-relay; do
+            git config --global --remove-section url."https://x-access-token:${SUDO_READ_TOKEN}@github.com/SChatMessenger/${repo}"
+          done
+          exit $status
+
+      - name: Format
+        run: cargo fmt --all -- --check
+
+      - name: Lint
+        run: cargo clippy --all-targets --locked -- -D warnings
+
+      - name: Tests (dishonest fake relays and a real relay)
+        run: cargo test --locked
+
+      - name: Install cargo-deny and cargo-audit
+        run: cargo install --locked cargo-deny@0.19.8 cargo-audit@0.22.1
+
+      - name: Dependency policy
+        run: cargo deny check
+
+      - name: Known vulnerabilities
+        run: cargo audit

@@ -1,0 +1,175 @@
+{
+  "construction": "kt-head",
+  "generator": "vectorgen 0.1.0",
+  "head_public_key": "99dfb61c475939a9d64a831f3ca8316179e8f90d3bc0e5db0860b4b2abf57026",
+  "head_seed": "1a051e253dd03d9a6e58f11ba0a2646c45e4236c9f6a8b27254c9e356b562943",
+  "invalid": [
+    {
+      "expected": "reject",
+      "name": "root-changed-after-signing",
+      "now": 1767229200,
+      "reason": "bad signature",
+      "seen": null,
+      "signed_head": "0000000000000007e18e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e"
+    },
+    {
+      "expected": "reject",
+      "name": "signed-by-another-key",
+      "now": 1767229200,
+      "reason": "bad signature",
+      "seen": null,
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710b6e325c7b8d6b951d8f618f56ba0c0eec5518434c6f469cdd204b680efb94d72405be583bef7eaaca0485d173531fb6f992c19a46caa199aa69ef1bfabd31b0c"
+    },
+    {
+      "expected": "reject",
+      "name": "wrong-label",
+      "now": 1767229200,
+      "reason": "bad signature (signed under \"sudo-v1 kt\")",
+      "seen": null,
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c71092b3372840bbda4d34bf2aebc0c7802999d0de3e6c930cd3c875e8f6e0791dd2872517bf04834a0b4b7820eacc786b3eb43572384ae7164ef04a96ce951a380c"
+    },
+    {
+      "expected": "reject",
+      "name": "10-minutes-1-second-old",
+      "now": 1767229801,
+      "reason": "too old",
+      "seen": null,
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e"
+    },
+    {
+      "expected": "reject",
+      "name": "from-the-future",
+      "now": 1767228599,
+      "reason": "too far in the future",
+      "seen": null,
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e"
+    },
+    {
+      "expected": "reject",
+      "name": "epoch-time-after-head-time",
+      "now": 1767229200,
+      "reason": "epoch_time after head_time",
+      "seen": null,
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c711000000006955c710c5fd41a9810edb38954a0bcd7837c87e04d0c1a70ad3ab98dbba1ed44d417e996f48b52f287404adfb7c302b106d7da964d5add16fff2c327609bc6e8dc17704"
+    },
+    {
+      "expected": "reject",
+      "name": "older-epoch",
+      "now": 1767229200,
+      "reason": "epoch lower than one already accepted",
+      "seen": {
+        "epoch": 6,
+        "root_hash": "8ba05ab3f492e531c95471cac286cea1adfaf564a87084b4846fa5981c2b9ab9"
+      },
+      "signed_head": "0000000000000005e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710bf65685474ba79e2409198ab810bf415031d24668ff5754f79fc257e7b3d679864e11ed6328b06ee9c5006613bc5f4284e7d09f32e29bbd0fa60f2d9438efe04"
+    },
+    {
+      "expected": "reject",
+      "name": "split-view",
+      "now": 1767229200,
+      "reason": "different root for an accepted epoch",
+      "seen": {
+        "epoch": 7,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "signed_head": "000000000000000737f448943f42615fb2db6bbe4ca992607578d13c85b123c0030d12d7fc2548ea000000006955c6f2000000006955c710273f6f5d37c6300bcaf4f6371f80b70f4d020e29b4cb8aa8237d282f75453be62afa690e4b172676f45841318beeda2a3ba2a8fbdf41449c7ad334825843080b"
+    },
+    {
+      "expected": "reject",
+      "name": "119-bytes",
+      "now": 1767229200,
+      "reason": "a signed head is exactly 120 bytes",
+      "seen": null,
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b204"
+    }
+  ],
+  "notes": [
+    "signature_input = label(\"sudo-v1 kt-head\") || epoch u64 || root_hash bytes[32] || epoch_time u64 || head_time u64; signed_head = epoch || root_hash || epoch_time || head_time || Ed25519 signature (120 bytes).",
+    "sth_hash = SHA-256(epoch u64 || root_hash).",
+    "An app accepts a head if: the signature verifies (strict, §4.1) with the built-in head key; |head_time - now| <= 600; epoch_time <= head_time; epoch >= the highest accepted epoch ('seen'); same epoch => same root_hash.",
+    "head_seed is a fixed test key; a relay keeps K_head in the HSM/KMS (§6.1)."
+  ],
+  "spec": "sudoproto.md §6.1, §6.2, §6.4 (Q60)",
+  "valid": [
+    {
+      "head": {
+        "epoch": 7,
+        "epoch_time": 1767229170,
+        "head_time": 1767229200,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "name": "first-head",
+      "now": 1767229205,
+      "seen": null,
+      "signature_input": "7375646f2d7631206b742d68656164000000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710",
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e",
+      "sth_hash": "8fe85c647a9dba07f552a36a3dc5ff9948d7c7575602a544ed9d329946abc180"
+    },
+    {
+      "head": {
+        "epoch": 7,
+        "epoch_time": 1767229170,
+        "head_time": 1767229200,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "name": "newer-than-seen",
+      "now": 1767229205,
+      "seen": {
+        "epoch": 6,
+        "root_hash": "8ba05ab3f492e531c95471cac286cea1adfaf564a87084b4846fa5981c2b9ab9"
+      },
+      "signature_input": "7375646f2d7631206b742d68656164000000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710",
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e",
+      "sth_hash": "8fe85c647a9dba07f552a36a3dc5ff9948d7c7575602a544ed9d329946abc180"
+    },
+    {
+      "head": {
+        "epoch": 7,
+        "epoch_time": 1767229170,
+        "head_time": 1767229260,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "name": "same-epoch-re-signed",
+      "now": 1767229260,
+      "seen": {
+        "epoch": 7,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "signature_input": "7375646f2d7631206b742d68656164000000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c74c",
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c74c3e7d0804e3512a6a8faf69523fe3f6e6ace5e4acb46f4f48f74a049692509237421635c01e10601d55c73e63163d17b344e9a8e9ad8dd7332bc5c32ef4519308",
+      "sth_hash": "8fe85c647a9dba07f552a36a3dc5ff9948d7c7575602a544ed9d329946abc180"
+    },
+    {
+      "head": {
+        "epoch": 7,
+        "epoch_time": 1767229170,
+        "head_time": 1767229200,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "name": "9-minutes-59-old",
+      "now": 1767229799,
+      "seen": {
+        "epoch": 7,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "signature_input": "7375646f2d7631206b742d68656164000000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710",
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e",
+      "sth_hash": "8fe85c647a9dba07f552a36a3dc5ff9948d7c7575602a544ed9d329946abc180"
+    },
+    {
+      "head": {
+        "epoch": 7,
+        "epoch_time": 1767229170,
+        "head_time": 1767229200,
+        "root_hash": "e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0"
+      },
+      "name": "clock-behind-by-10-minutes",
+      "now": 1767228600,
+      "seen": null,
+      "signature_input": "7375646f2d7631206b742d68656164000000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710",
+      "signed_head": "0000000000000007e08e1c1963b00a7d811ec0a196817638c19ccfdc19c2bbd77aa8e300f7aff8f0000000006955c6f2000000006955c710cdb700c6d6696ff45a59027228091acec7805c77f8c631a50156d20abeff0897296fa106cf02181900888d57c2d8910f0d83c9b4441a241958f3e0abe3b2040e",
+      "sth_hash": "8fe85c647a9dba07f552a36a3dc5ff9948d7c7575602a544ed9d329946abc180"
+    }
+  ],
+  "wire_version": 1
+}

@@ -1,0 +1,3 @@
+# sudo-sdk and sudo-relay are private GitHub repos: let git (with the gh login) fetch them.
+[net]
+git-fetch-with-cli = true

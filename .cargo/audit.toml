@@ -1,0 +1,6 @@
+[advisories]
+# libsqlite3-sys is listed in Cargo.lock only because sqlx 0.9.0 names its
+# SQLite driver as an optional dependency. The relay enables only "postgres",
+# so SQLite is never built. sudo-cli uses sqlx only in tests (to run the relay); SQLite is never built.
+# Remove this line when sqlx ships a fixed version.
+ignore = ["RUSTSEC-2026-0459"]
