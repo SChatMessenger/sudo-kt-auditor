@@ -17,9 +17,9 @@ use std::sync::{Arc, Mutex};
 use sudo_kt::{HEAD_LEN, SignedHead};
 use sudo_kt_auditor::{Failure, Store, run};
 
-/// The vectors' pinned SHA-256 (sudo-protocol manifest.json, bundle 4701b4c7…).
+/// The vectors' pinned SHA-256 (sudo-protocol manifest.json, bundle 56bfd733…).
 const KT_DIRECTORY_SHA256: &str =
-    "59ac026ebadf7ce02412bbc7490c3282b83bc60b1ea9d63e646e4497dca2cbbc";
+    "cc412c247df2909dad8a306b2e04b82648113a128a0d43d788fbf4d41b817dde";
 const KT_HEAD_SHA256: &str = "bbd16fbdb06fa1de9f9336b62363c39fabb5f8d98cba4eb90ad7eb32b62d6b90";
 /// vectorgen's directory signs epoch e at T0 + 60 e.
 const T0: u64 = 1_767_229_200;

@@ -1904,8 +1904,8 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 
 [[package]]
 name = "sudo-crypto"
-version = "0.7.0"
-source = "git+https://github.com/SChatMessenger/sudo-sdk.git?tag=v0.7.0#5f8142555cf7af701d96f0a357ebc6ab43c3d490"
+version = "0.11.0"
+source = "git+https://github.com/SChatMessenger/sudo-sdk.git?tag=v0.11.0#0b985e87df2d1dbb643d8b27394fd530d340e72b"
 dependencies = [
  "ed25519-dalek 3.0.0",
  "getrandom 0.4.3",
@@ -1918,8 +1918,8 @@ dependencies = [
 
 [[package]]
 name = "sudo-kt"
-version = "0.7.0"
-source = "git+https://github.com/SChatMessenger/sudo-sdk.git?tag=v0.7.0#5f8142555cf7af701d96f0a357ebc6ab43c3d490"
+version = "0.11.0"
+source = "git+https://github.com/SChatMessenger/sudo-sdk.git?tag=v0.11.0#0b985e87df2d1dbb643d8b27394fd530d340e72b"
 dependencies = [
  "akd_core",
  "protobuf",
@@ -1929,7 +1929,7 @@ dependencies = [
 
 [[package]]
 name = "sudo-kt-auditor"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "akd",
  "axum",
@@ -1944,8 +1944,8 @@ dependencies = [
 
 [[package]]
 name = "sudo-relay"
-version = "0.5.0"
-source = "git+https://github.com/SChatMessenger/sudo-relay.git?tag=v0.5.0#5765912436f197af8d925428e12fe39a6f760143"
+version = "0.7.0"
+source = "git+https://github.com/SChatMessenger/sudo-relay.git?tag=v0.7.0#cc9c44070c04dc77cda7092152da2bed6b5dbb37"
 dependencies = [
  "akd",
  "async-trait",
@@ -1962,8 +1962,8 @@ dependencies = [
 
 [[package]]
 name = "sudo-wire"
-version = "0.7.0"
-source = "git+https://github.com/SChatMessenger/sudo-sdk.git?tag=v0.7.0#5f8142555cf7af701d96f0a357ebc6ab43c3d490"
+version = "0.11.0"
+source = "git+https://github.com/SChatMessenger/sudo-sdk.git?tag=v0.11.0#0b985e87df2d1dbb643d8b27394fd530d340e72b"
 
 [[package]]
 name = "syn"
